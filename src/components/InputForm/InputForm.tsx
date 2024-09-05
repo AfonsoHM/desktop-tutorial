@@ -1,3 +1,4 @@
+import {AiOutlinePlusCircle} from 'react-icons/ai'
 import styles from './inputForm.module.css'
 
 export function InputForm() {
@@ -8,7 +9,10 @@ export function InputForm() {
         placeholder='Adicione uma nova tarefa'
       />
       
-      <button>Criar</button>
+      <button>
+        Criar
+        <AiOutlinePlusCircle size={20} />
+      </button>
     </form>
   )
 }
