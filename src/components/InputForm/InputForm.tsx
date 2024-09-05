@@ -2,8 +2,9 @@ import styles from './inputForm.module.css'
 
 export function InputForm() {
   return (
-    <form className={styles.newTaskForm}>
+    <form className={styles.formContainer} >
       <input 
+        className={styles.newTaskForm}
         placeholder='Adicione uma nova tarefa'
       />
       
