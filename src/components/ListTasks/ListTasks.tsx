@@ -1,8 +1,13 @@
 import { Task } from '../Task/Task'
+
+import {TasksProps} from '../../App'
 import styles from './ListTasks.module.css'
 
+interface Props {
+  tasks: TasksProps[];
+}
 
-export function ListTasks() {
+export function ListTasks({ tasks}: Props) {
   return (
     <section className={styles.tasks}>
       <header className={styles.header}>
@@ -18,9 +23,9 @@ export function ListTasks() {
       </header>
       
       <div className={styles.list}>
-        <Task />
-        <Task />
-        <Task />
+        {tasks.map((task) => (
+          <Task />
+        ))}
       </div>
       
     </section>
