@@ -15,7 +15,12 @@ function App() {
       id: 1,
       title: 'First task',
       isCompleted: true,
-    }
+    },
+    {
+      id: 2,
+      title: 'Second task',
+      isCompleted: false,
+    },
   ])
 
   return (
