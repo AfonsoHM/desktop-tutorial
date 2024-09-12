@@ -8,23 +8,27 @@ interface Props {
 }
 
 export function ListTasks({ tasks}: Props) {
+  const taskQuantity = tasks.length
+  const completedTask = tasks.filter(task => task.isCompleted).length
+
+
   return (
     <section className={styles.tasks}>
       <header className={styles.header}>
         <div>
           <p>Tarefas criadas</p>
-          <span>5</span>
+          <span>{taskQuantity}</span>
         </div>
 
         <div>
           <p className={styles.textPurple}>Concluídas</p>
-          <span>2 de 5</span>
+          <span>{completedTask} de {taskQuantity}</span>
         </div>
       </header>
       
       <div className={styles.list}>
         {tasks.map((task) => (
-          <Task />
+          <Task task={task} key={task.id} />
         ))}
       </div>
       
