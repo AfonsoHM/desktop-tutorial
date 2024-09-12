@@ -29,11 +29,18 @@ export interface TasksProps {
     ])
   }
 
+  function handleDeleteTaskById(taskId: string) {
+    const newTasks = tasks.filter(tasks => tasks.id !== taskId)
+    setTasks(newTasks)
+
+  }
+
+
   return (
     <>
       <Header />
       <InputForm onCreateNewTask={createNewTask}  />
-      <ListTasks tasks={tasks} />
+      <ListTasks tasks={tasks} onDelete={handleDeleteTaskById} />
     </>
   )
 }

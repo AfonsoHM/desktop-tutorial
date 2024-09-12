@@ -13,7 +13,13 @@ export function InputForm({onCreateNewTask}: InputFormProps) {
   function handleSubmit(event: FormEvent ) {
     event.preventDefault()
 
+    if(newTaskTitle === '') {
+      alert('Campo de nova tarefa vazio!')
+      return
+    }
+    
     onCreateNewTask(newTaskTitle)
+    setNewTaskTitle('')
   } 
 
   function handleNewTaskChange(event: ChangeEvent<HTMLInputElement>) {
