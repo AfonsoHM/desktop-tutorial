@@ -1,38 +1,44 @@
 import { useState } from "react"
-import { Header } from "./components/Header/Header"
-import { InputForm } from "./components/InputForm/InputForm"
-import { ListTasks } from "./components/ListTasks/ListTasks"
+import { Header } from "./components/Header"
+import { InputForm } from "./components/InputForm"
+import { ListTasks } from "./components/ListTasks"
 
 export interface TasksProps {
-  id: string;
+  id: number;
   title: string;
   isCompleted: boolean;
 }
 
   function App() {
-    const [tasks, setTasks] = useState<TasksProps[]>([
-      {
-        id: '1',
-        title: 'First task',
-        isCompleted: true,
-      },
-
-  ])
+    const [tasks, setTasks] = useState<TasksProps[]>([])
 
   function createNewTask(taskTitle: string) {
-    setTasks([
-      ...tasks, {
-        id: crypto.randomUUID(),
-        title: taskTitle,
-        isCompleted: false,
-      }
-    ])
+    const newTask = {
+      id: new Date().getTime(),
+      title: taskTitle,
+      isCompleted: false,
+    }
+    setTasks((state) => [...state, newTask])
   }
 
-  function handleDeleteTaskById(taskId: string) {
+  function handleDeleteTaskById(taskId: number) {
     const newTasks = tasks.filter(tasks => tasks.id !== taskId)
     setTasks(newTasks)
 
+  }
+
+  function handleToggleTask(taskId: number) {
+    const newTasks = tasks.map((task) => {
+      if (task.id === taskId) {
+        return {
+          ...task,
+          isCompleted: !task.isCompleted,
+        }
+      } else {
+        return task
+      }
+    })
+    setTasks(newTasks)
   }
 
 
@@ -40,7 +46,7 @@ export interface TasksProps {
     <>
       <Header />
       <InputForm onCreateNewTask={createNewTask}  />
-      <ListTasks tasks={tasks} onDelete={handleDeleteTaskById} />
+      <ListTasks tasks={tasks} onDelete={handleDeleteTaskById} onToggleTask={handleToggleTask} />
     </>
   )
 }

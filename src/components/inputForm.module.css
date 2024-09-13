@@ -23,8 +23,9 @@
 }
 
 .newTaskForm::placeholder {
-  color: var(--gray-300)
+  color: var(--gray-300);
 }
+
 
 .formContainer button {
   height: 100%;
@@ -39,4 +40,10 @@
   
   display: flex;
   align-items: center;
+
+  transition: 0.2s;
+}
+
+.formContainer button:hover {
+  background-color: var(--blue);
 }
