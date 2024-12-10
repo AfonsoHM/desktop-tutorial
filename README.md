@@ -4,9 +4,6 @@ Repositório destinado a armazenar todas as resoluções dos desafios que desenv
 
 <br />
 
-<a href="https://www.youtube.com/playlist?list=PLY_G6KZ7jlfUtXT2aIhiIOVVef7btqPKR" target="_blank">
-<img src="https://user-images.githubusercontent.com/71772559/178192606-8a8460b1-d9e3-42ad-a64c-6ad7a16bd381.png" />
-</a>
 
 &nbsp;
 
